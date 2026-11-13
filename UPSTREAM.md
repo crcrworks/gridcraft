@@ -21,8 +21,10 @@ fork。bace（[`crcrworks/bace`](https://github.com/crcrworks/bace)）が LiveWi
 
 - `bace` の起点にした上流の rev: `f1894c6da64d4326022ae644c767581816a23c2c`
   (2026-10-15, "Merge pull request #1590 from dylanmtaylor/ci/shared-freebsd-workflow")
-- `main` が mirror している上流の rev: `bbe082540474bec78058904fd6ba8b54654e8d2e`
-  (2026-11-11, "Security: TEXTJOIN builds its result piece by piece within the text cap (#3202)")
+- `main` が mirror している上流の rev: `c0ee120ac2d9b59630f5abf1151dd9b471fe2926`
+  (egui 0.37)
+- `bace` が最後に取り込んだ上流の rev: `c0ee120ac2d9b59630f5abf1151dd9b471fe2926`
+  (egui 0.37。コードの差は無いので、merge で上流のままになった)
 
 `main` は bace のビルドには使わない。bace が使うのは `bace` だけ。
 
@@ -34,10 +36,11 @@ fork。bace（[`crcrworks/bace`](https://github.com/crcrworks/bace)）が LiveWi
 | --- | --- |
 | `UPSTREAM.md` | この文書。コードの差分ではない |
 
-2026-11-11 時点（`bace` の起点）で、コードの差分は**ゼロ**:
+2026-11-11 時点（`bace` の起点）で、コードの差分は**ゼロ**。egui 0.37 を取り込んだ
+`c0ee120a` でも変わらない:
 
 ```bash
-git diff f1894c6da64d4326022ae644c767581816a23c2c bace -- . ':!UPSTREAM.md'   # 空
+git diff c0ee120ac2d9b59630f5abf1151dd9b471fe2926 bace -- . ':!UPSTREAM.md'   # 空
 git grep -c '// bace:' bace -- . ':!UPSTREAM.md'                              # 何も出ない
 ```
 
